@@ -27,15 +27,17 @@ public class LoginService {
         if (header != null && header.startsWith("Basic")) {
 
             // get the encoded string
-            String encodedHeader = header.substring(5).trim();
+            String encodedHeader = header.substring("Basic ".length()).trim();
 
             //decode the string into username and password
             String decodeString = new String(Base64.getDecoder().decode(encodedHeader), StandardCharsets.UTF_8);
             //set username and password after decryption
-            String[] splitDecodeString = decodeString.split(":", 2);
-
-            logindetails.setUserName(splitDecodeString[0]);
-            logindetails.setPassword(splitDecodeString[1]);
+            String[] splitDecodeString = decodeString.split(":");
+            System.out.println(decodeString);
+            String userName = splitDecodeString[0];
+            String passwordFrom = splitDecodeString[1];
+            logindetails.setUserName(userName);
+            logindetails.setPassword(passwordFrom);
         }
         return logindetails;
     }

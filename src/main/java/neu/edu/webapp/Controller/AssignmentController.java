@@ -62,7 +62,10 @@ public class AssignmentController {
         List<Assignment> allAssignments = null;
 
         try {
+//            if(authHeader == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).cacheControl(CacheControl.noCache()).build();
+//            System.out.println(authHeader);
             Login login = loginService.getLoginDetails(authHeader);
+            if(login == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).cacheControl(CacheControl.noCache()).build();
             if (loginService.checkValidUser(login)) {
                 Account account = assignmentService.fetchUserAccount(login.getUserName());
 //                String accountId = account.getId();
