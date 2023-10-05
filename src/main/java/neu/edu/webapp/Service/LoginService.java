@@ -24,11 +24,13 @@ public class LoginService {
 
     public Login getLoginDetails(String header) {
 
+
         String userNameFromUser = null;
         String passFromUser = null;
 
         Login logindetails = new Login();
 //        if (header != null && header.startsWith("Basic")) {
+
 
             // get the encoded string
             String encodedHeader = header.substring("Basic ".length()).trim();
@@ -37,6 +39,7 @@ public class LoginService {
             String decodeString = new String(Base64.getDecoder().decode(encodedHeader), StandardCharsets.UTF_8);
             //set username and password after decryption
             String[] splitDecodeString = decodeString.split(":");
+
 //            System.out.println(decodeString);
             String userName = splitDecodeString[0];
             String passwordFrom = splitDecodeString[1];
@@ -55,6 +58,7 @@ public class LoginService {
             logindetails.setPassword(passFromUser);
 
 //        }
+
         return logindetails;
     }
 
