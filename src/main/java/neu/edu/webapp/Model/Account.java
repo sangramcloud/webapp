@@ -20,12 +20,19 @@ public class Account {
     @Column(name = "id", updatable = false, nullable = false, insertable = false) // read only
 //    @Type(type = "uuid-char") // This line specifies the type as a string
     private String id;
+
+    @Column(nullable = false)
     private String first_name;
+
+    @Column(nullable = false)
     private String last_name;
 
 //    @JsonIgnore //write only. JsonIgnore ignores during deserilization
 
-    private String password; //Write only
+    @Column(nullable = false)
+    private String password;
+    //Write only
+    @Column(nullable = false)
     private String email;
     @CreationTimestamp
     @Column(updatable = false, nullable = false)

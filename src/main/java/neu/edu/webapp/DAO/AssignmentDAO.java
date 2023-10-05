@@ -104,7 +104,7 @@ public class AssignmentDAO extends DAO {
 
 
     //update the assignment by ID
-    public boolean updateAssignmentById(String id, Account account, Assignment newAssignment) {
+    public boolean updateAssignmentById(String id, Assignment newAssignment, Account account) {
         Assignment existingAssignment = null;
         Date newUpdatedTimeStamp = new Date();
         try {
