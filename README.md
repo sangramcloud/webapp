@@ -24,3 +24,5 @@ Basic spring-boot project with maven and swagger docs setup. Added Basic auth se
 4. http://localhost:8080/v1/assignments/{id} (GET -- get the assignment with this id)
 5. http://localhost:8080/v1/assignments/{id} (DELETE -- delete the assignment with this id)
 6. http://localhost:8080/v1/assignments/{id} (PUT -- update the assignment with this id)
+
+test
