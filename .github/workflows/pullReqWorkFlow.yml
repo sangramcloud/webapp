@@ -9,16 +9,16 @@ jobs:
   integration-test:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-#          MYSQL_ROOT_USERNAME: root
-          MYSQL_ROOT_PASSWORD: Ssangramm@12
-          MYSQL_DATABASE: cloud
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    # services:
+#       mysql:
+#         image: mysql:latest
+#         env:
+# #          MYSQL_ROOT_USERNAME: root
+#           MYSQL_ROOT_PASSWORD: Ssangramm@12
+#           MYSQL_DATABASE: cloud
+#         ports:
+#           - 3306:3306
+#         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout Code
@@ -63,7 +63,7 @@ jobs:
           until nc -z -v -w30 localhost 3306
           do
             echo "Waiting for MySQL to be ready..."
-            sleep 5
+            # sleep 5
           done
 
       - name: Build with Maven
