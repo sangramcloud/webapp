@@ -3,7 +3,7 @@ name: Packer_Build
 on:
   push:
     branches:
-      - main
+      - Assignment5
 
 jobs:
   jar_creation:
@@ -104,8 +104,10 @@ jobs:
 
       - name: Build AMI
         run: |
-          mvn clean package
           cp ./target/*.jar packer
+          ls
+          cd packer 
+          ls -al
           packer build ./packer/aws-debian.pkr.hcl
 
 
