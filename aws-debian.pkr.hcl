@@ -37,7 +37,10 @@ source "amazon-ebs" "my-ami" {
   region          = "${var.aws_region}"
   ami_name        = "csye6225_${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
   ami_description = "AMI for CSYE 6225"
+  access_key = "AKIA5MTCQPM5AQ45WECR"
+  secret_key = "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"
 #  ami_users       = ["455958282906", "920403344186"]
+
   ami_regions = [
     "us-east-1"
   ]
@@ -62,10 +65,11 @@ source "amazon-ebs" "my-ami" {
 
 build {
   sources = ["source.amazon-ebs.my-ami"]
-#
+
+
   provisioner "file" {
-    source      = "${var.jar_file}"
-    destination = "/home/admin/webapp-0.0.1-SNAPSHOT.jar"
+    source      = "./target/webapp-0.0.1-SNAPSHOT.jar"
+    destination = "/tmp/webapp-0.0.1-SNAPSHOT.jar"
   }
 ##
   provisioner "shell" {
