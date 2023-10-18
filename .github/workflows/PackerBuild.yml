@@ -107,7 +107,7 @@ jobs:
       - name: Build AMI
         run: |
           cp ./target/*.jar packer
-          packer build -var "jar_file= target/webapp-0.0.1-SNAPSHOT.jar" ./packer/.
+          packer build -var "jar_file= ./target/webapp-0.0.1-SNAPSHOT.jar" ./packer/.
 
 
 
