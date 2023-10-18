@@ -59,7 +59,12 @@ build {
   sources = ["source.amazon-ebs.my-ami"]
 #
   provisioner "file" {
+<<<<<<< HEAD
     source      = "webapp-0.0.1-SNAPSHOT.jar"
+=======
+    source      = "./ami/webapp-0.0.1-SNAPSHOT.jar"
+
+>>>>>>> dfd6604e58ba33387d654a2847f67d3f41e7431d
     destination = "/home/admin/webapp-0.0.1-SNAPSHOT.jar"
   }
 ##
