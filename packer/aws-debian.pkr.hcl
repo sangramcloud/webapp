@@ -60,6 +60,7 @@ build {
 #
   provisioner "file" {
     source      = "./ami/webapp-0.0.1-SNAPSHOT.jar"
+
     destination = "/home/admin/webapp-0.0.1-SNAPSHOT.jar"
   }
 ##
