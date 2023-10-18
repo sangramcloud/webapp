@@ -105,9 +105,6 @@ jobs:
       - name: Build AMI
         run: |
           cp ./target/*.jar packer
-          ls
-          cd packer 
-          ls -al
           packer build ./packer/aws-debian.pkr.hcl
 
 
