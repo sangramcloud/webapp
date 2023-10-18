@@ -12,6 +12,11 @@ variable "aws_region" {
   default = "us-east-1"
 }
 
+variable "jar_file"{
+  type = string
+  default = ""
+}
+
 variable "source_ami" {
   type    = string
   default = "ami-06db4d78cb1d3bbf9" # Debian 12
@@ -59,7 +64,7 @@ build {
   sources = ["source.amazon-ebs.my-ami"]
 #
   provisioner "file" {
-    source      = "webapp-0.0.1-SNAPSHOT.jar"
+    source      = "${var.jar_file}"
     destination = "/home/admin/webapp-0.0.1-SNAPSHOT.jar"
   }
 ##
