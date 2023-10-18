@@ -100,10 +100,11 @@ jobs:
 #        run: packer build ./aws-debian.pkr.hcl
       - name: Run Packer init
         id: init
-        run: packer init .\packer\aws-debian.pkr.hcl
+        run: packer init ./packer/aws-debian.pkr.hcl
 
       - name: Build AMI
-        run: packer build .\packer\aws-debian.pkr.hcl
+        run: packer build ./packer/aws-debian.pkr.hcl
+
 
 
 
