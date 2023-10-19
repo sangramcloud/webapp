@@ -31,14 +31,24 @@ variable "subnet_id" {
   type    = string
   default = "subnet-0185a07b279bcab12"
 }
+variable "device_name" {
+  type    = string
+  default = "/dev/xvda"
+}
+variable "volume_size" {
+  type    = integer
+  default = 8
+}
+variable "volume_type" {
+  type    = string
+  default = "gp2"
+}
 
 # https://www.packer.io/plugins/builders/amazon/ebs
 source "amazon-ebs" "my-ami" {
   region          = "${var.aws_region}"
   ami_name        = "csye6225_${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
   ami_description = "AMI for CSYE 6225"
-  access_key      = "AKIA5MTCQPM5OTPEY4SJ"
-  secret_key      = "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"
   ami_users       = ["455958282906", "920403344186"]
 
   ami_regions = [
@@ -57,11 +67,12 @@ source "amazon-ebs" "my-ami" {
 
   launch_block_device_mappings {
     delete_on_termination = true
-    device_name           = "/dev/xvda"
-    volume_size           = 8
-    volume_type           = "gp2"
+    device_name           = "${var.device_name}"
+    volume_size           = "${var.volume_size}"
+    volume_type           = "${var.volume_type}"
   }
 }
+
 
 build {
   sources = ["source.amazon-ebs.my-ami"]
@@ -78,7 +89,8 @@ build {
   provisioner "shell" {
     inline = [
       "sudo mv /tmp/webapp-0.0.1-SNAPSHOT.jar /opt/webapp-0.0.1-SNAPSHOT.jar",
-      "sudo mv /tmp/users.csv /opt/users.csv"
+      "sudo mv /tmp/users.csv /opt/users.csv" ,
+
     ]
   }
   provisioner "shell" {
