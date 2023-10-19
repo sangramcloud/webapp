@@ -84,17 +84,12 @@ jobs:
           version: "latest"
 
         env:
-          AWS_ACCESS_KEY_ID: "AKIA5MTCQPM5AQ45WECR"
-          AWS_SECRET_ACCESS_KEY: "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"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_GIT }} >>.env
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_GIT }} >>.env
           AWS_DEFAULT_REGION: "us-east-1"
           AWS_SOURCE_AMI: "ami-06db4d78cb1d3bbf9"
           AWS_SUBNET_ID: "subnet-0185a07b279bcab12"
           AWS_SSH_USERNAME: "admin"
-
-#          AMI_USERS:
-#           - "455958282906"
-#           - "920403344186"
-
           AWS_VPC_ID: "vpc-06561666a2aecb4ee"
 #
 #      - name: Packer-build
