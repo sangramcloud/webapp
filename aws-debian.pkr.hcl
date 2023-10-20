@@ -86,7 +86,6 @@ build {
   }
   provisioner "file" {
     source      = "${var.jar_file}"
-
     destination = "/tmp/webapp-0.0.1-SNAPSHOT.jar"
   }
   ##
