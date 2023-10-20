@@ -86,6 +86,7 @@ build {
   }
   provisioner "file" {
     source      = "/home/runner/work/webapp/webapp/target/webapp-0.0.1-SNAPSHOT.jar"
+
     destination = "/tmp/webapp-0.0.1-SNAPSHOT.jar"
   }
   ##
