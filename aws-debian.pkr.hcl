@@ -50,7 +50,8 @@ source "amazon-ebs" "my-ami" {
   region          = "${var.aws_region}"
   ami_name        = "csye6225_${formatdate("YYYY_MM_DD_hh_mm_ss", timestamp())}"
   ami_description = "AMI for CSYE 6225"
-  ami_users       = ["455958282906","920403344186"]
+  ami_users       = ["455958282906", "920403344186"]
+
   ami_regions = [
     "us-east-1"
   ]
