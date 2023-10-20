@@ -23,7 +23,6 @@ sudo apt install maven -y
 
 #Install MariaDb
 sudo apt update
-
 echo "sudo apt install mariadb-server"
 sudo apt install -y mariadb-server
 
@@ -43,6 +42,7 @@ n
 n
 y
 EOF
+
 
 sudo apt update
 sudo apt upgrade -y
