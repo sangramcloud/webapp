@@ -55,7 +55,7 @@ source "amazon-ebs" "my-ami" {
     "us-east-1"
   ]
 
-  aws_polling {
+    aws_polling {
     delay_seconds = 120
     max_attempts  = 50
   }
