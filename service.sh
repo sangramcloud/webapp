@@ -5,7 +5,7 @@ echo "|                                                             |"
 echo "+-------------------------------------------------------------+"
 echo "cd to /lib/systemd/system"
 cd
-sudo cp -r webapp.service /lib/systemd/system
+sudo scp webapp.service /lib/systemd/system
 
 echo "+-------------------------------------------------------------+"
 echo "|                                                             |"
@@ -26,6 +26,15 @@ echo ~csye6225
 # sudo -u webappuser bash
 echo "display permissions of user directory"
 ls -la /opt/csye6225
+
+
+echo "+-------------------------------------------------------------+"
+echo "|                                                             |"
+echo "| copy env variable shell script to webapp folder             |"
+echo "|                                                             |"
+echo "+-------------------------------------------------------------+"
+sudo scp env.sh /opt/csye6225/
+
 
 echo "change permissions of webapp"
 sudo chown -R csye6225:csye6225 /opt/csye6225/webapp-0.0.1-SNAPSHOT.jar

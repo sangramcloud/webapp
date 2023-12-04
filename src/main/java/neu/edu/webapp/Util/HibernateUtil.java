@@ -36,7 +36,7 @@ public class HibernateUtil {
 //                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/cloud?createDatabaseIfNotExist=true");
                 settings.put(Environment.URL, System.getenv("URL"));
 //                settings.put(Environment.USER, "root");
-                settings.put(Environment.USER, System.getenv("USER"));
+                settings.put(Environment.USER, System.getenv("RDSUSERNAME"));
 //                settings.put(Environment.PASS, "Ssangramm@12");
                 settings.put(Environment.PASS, System.getenv("PASS"));
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
