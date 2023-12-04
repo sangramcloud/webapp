@@ -14,7 +14,7 @@ jobs:
 
     env:
       URL: ${{ secrets.URL }}
-      USER: ${{ secrets.USER }}
+      USER: ${{ secrets.RDSUSERNAME }}
       PASS: ${{ secrets.PASS }}
 
     runs-on: ubuntu-latest
