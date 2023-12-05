@@ -86,8 +86,8 @@ build {
     destination = "/tmp/webapp-0.0.1-SNAPSHOT.jar"
   }
 
-  provisioner "file"{
-    source = "./webapp.service"
+  provisioner "file" {
+    source      = "./webapp.service"
     destination = "/tmp/webapp.service"
   }
   ##
@@ -108,7 +108,7 @@ build {
     script = "Java.sh"
   }
 
-  provisioner "shell"{
+  provisioner "shell" {
     script = "service.sh"
   }
 
